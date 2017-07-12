@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './app.css';
+import PropList from './proplist';
 import { Form, FormControl, Button } from 'react-bootstrap';
+import './app.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: []
-    };
-  }
+      'sortedData': []
+    }
+  };
 
   render() {
     return (
@@ -19,8 +20,11 @@ class App extends Component {
           <Button bsStyle="primary">Beds</Button>
           <Button bsStyle="primary">Sq. ft.</Button>
         </div>
+        <PropList
+          listings={this.props.listings}
+        />
       </div>
-    )
+    );
   }
 }
 
