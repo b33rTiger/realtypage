@@ -1,0 +1,38 @@
+.container {
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  display: inline-flex;
+  border: solid 1px #eee;
+  padding: 10px;
+}
+
+button {
+  margin-right: 8px;
+}
+
+.image {
+  float: left;
+  max-width: 100px;
+  margin-right: 10px;
+}
+
+img {
+  max-width: 100px;
+}
+
+.listInfo {
+  text-align: left;
+}
+
+li {
+    float: left;
+    list-style-type: disc;
+    padding-right: 24px;
+}
+
+li:first-child {
+    list-style-type: none;
+}
