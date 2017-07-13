@@ -69,12 +69,14 @@ img {
 }
 
 .street {
-  color: blue;
+  font-weight: 500;
+  color: #007ad5;
   font-size: 20px;
 }
 
 .state {
-  color: blue;
+  font-weight: 500;
+  color: #007ad5;
   font-size: 20px;
 }
 
@@ -93,13 +95,17 @@ li {
   position: relative;
 }
 
+li + li {
+  margin-left: 4px;
+}
+
 li:before {
   content: "\2219";
   font-size: 2.5em;
   line-height: 0;
   position: relative;
   top: .2em;
-  left: -.005em;
+  left: -.06em;
 }
 
 li:first-child:before {

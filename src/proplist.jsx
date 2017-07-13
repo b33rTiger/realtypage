@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import './app.css';
 
 const PropList = (props) => {
@@ -11,7 +12,9 @@ const PropList = (props) => {
           <div className="listInfo">
             <div className="street">{item.street}</div>
             <div className="state">{item.city}, {item.state}</div>
-            <div className="price">{item.price}</div>
+            <div className="price">
+              <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+            </div>
             <div className="features">
               <li>{item.beds} beds</li>
               <li>{item.baths} baths</li>
