@@ -1,38 +1,115 @@
-.container {
-  text-align: center;
-  margin: 0;
+.app {
+  padding: 0 20px;
 }
 
-.content {
-  display: inline-flex;
-  border: solid 1px #eee;
-  padding: 10px;
+/*.app-title {
+  padding-left: 20px;
+}*/
+
+.button-group {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 500px;
 }
 
 button {
-  margin-right: 8px;
+  width: 143px;
+  margin-right: 10px;
+  padding-left: 75px;
+  padding-right: 25px;
 }
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border: 2px solid #eee;
+  width: 450px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 10px;
+  padding-left: 0;
+}
+/*.container {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 0px;
+  padding: 0;
+  flex-flow: row;
+}
+
+.section {
+  display: flex;
+  border: 2px solid #eee;
+  margin: 0 auto;
+  padding-right: 0;
+  overflow: hidden;
+}*/
 
 .image {
   float: left;
-  max-width: 100px;
-  margin-right: 10px;
+  padding: 5px;
+  width: 150px;
+  margin: 5px;
 }
 
 img {
-  max-width: 100px;
+  width: 100%;
 }
 
 .listInfo {
   text-align: left;
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+.street {
+  color: blue;
+  font-size: 20px;
+}
+
+.state {
+  color: blue;
+  font-size: 20px;
+}
+
+.price {
+  font-size: 40px;
+}
+
+.features {
+  font-size: 15px;
+  opacity: 0.9;
 }
 
 li {
-    float: left;
-    list-style-type: disc;
-    padding-right: 24px;
+  float: left;
+  list-style-type: none;
+  position: relative;
 }
 
-li:first-child {
-    list-style-type: none;
+li:before {
+  content: "\2219";
+  font-size: 2.5em;
+  line-height: 0;
+  position: relative;
+  top: .2em;
+  left: -.005em;
+}
+
+li:first-child:before {
+  content: "";
+}
+
+.year {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 10px;
+  color: gray;
 }
