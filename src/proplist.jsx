@@ -1,24 +1,31 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import './app.css';
 
 const PropList = (props) => {
   const listings = props.listings.map((item, index) =>
-    <div className="content col-md-6" key={index}>
-      <div className="image">
-        <img src={item.img} alt=""/>
+      <div className="row col-md-6 col-sm-12" key={index}>
+        <div className="content">
+          <div className="image">
+          <img src={item.img} alt=""/>
+          </div>
+          <div className="listInfo">
+            <div className="street">{item.street}</div>
+            <div className="state">{item.city}, {item.state}</div>
+            <div className="price">
+              <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+            </div>
+            <div className="features">
+              <li>{item.beds} beds</li>
+              <li>{item.baths} baths</li>
+              {item.sqft > 0 && <li>{item.sqft} sq ft</li>}
+            </div>
+          </div>
+          <div className="year">
+            {item.built > 0 && <div>Built in {item.built}</div>}
+          </div>
+        </div>
       </div>
-      <div className="listInfo">
-        <div className="street">{item.street}</div>
-        <div className="state">{item.state}</div>
-        <div className="price">{item.price}</div>
-      </div>
-      <ul className="features">
-        <li>{item.beds} bdrms</li>
-        <li>{item.baths} bath</li>
-        <li>{item.sqft} sq ft</li>
-      </ul>
-      <div className="year">{item.built}</div>
-    </div>
   );
   return (
     <div className="container">
