@@ -7,3 +7,7 @@ In the project directory run:
 Then:
 
 `npm start`
+
+Running application can be found here:
+
+https://superhero-realty.herokuapp.com
