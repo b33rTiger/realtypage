@@ -2,8 +2,8 @@ Clone repo to local machine.
 
 In the project directory run:
 
-### `npm install`
+`npm install`
 
 Then:
 
-### `npm start`
+`npm start`
