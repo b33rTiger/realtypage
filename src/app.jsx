@@ -8,26 +8,57 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'filtered': []
+      'filtered': [],
+      'classes': {
+        'bedsState': false,
+        'priceState': false,
+        'sqftState': false
+      }
     };
     this.handleClick = this.handleClick.bind(this);
   };
 
   handleClick(value) {
+    console.log(value);
     const data = this.props.listings;
-    function sortData(value, data) {
-      return data.sort(function(a, b) {
-        let x = a[value];
-        let y = b[value];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-      });
+    if (value === 'beds') {
+      console.log('value beds: ' + value);
+      this.sortData(data, value)
+      this.setState({
+        filtered: data,
+        priceState: false,
+        sqftState: false,
+        bedsState: true
+      })
+    } else if (value === 'price') {
+      this.sortData(data, value)
+      this.setState({
+        filtered: data,
+        priceState: true,
+        sqftState: false,
+        bedsState: false
+      })
+    } else {
+      this.sortData(data, value)
+      this.setState({
+        filtered: data,
+        priceState: false,
+        sqftState: true,
+        bedsState: false
+      })
     }
-    this.setState({
-      filtered: data
-    })
+  }
+
+  sortData(data, key) {
+    return data.sort(function(a, b) {
+      let x = a[key];
+      let y = b[key];
+      return ((x < y) ? - 1 : ((x > y) ? 1 : 0));
+    });
   }
 
   render() {
+    const {bedsState, priceState, sqftState} = this.state.classes;
     return (
       <div className="app">
         <div className="app-title">
@@ -35,16 +66,21 @@ class App extends Component {
           <div className="button-group">
             <button
               type="button"
-              className="btn btn-success">
+              onClick={() => this.handleClick('price')}
+              className={'btn btn-success ' + (priceState ? 'true' : 'false')}>
               Price
               </button>
             <button
               type="button"
-              className="btn btn-success"
-              onClick={() => this.handleClick('beds')}>
+              onClick={() => this.handleClick('beds')}
+              className={'btn btn-success ' + (bedsState ? 'true' : 'false')}>
               Beds
               </button>
-            <button type="button" className="btn btn-success">Sq. ft.</button>
+            <button type="button"
+              onClick={() => this.handleClick('sqft')}
+              className={'btn btn-success ' + (sqftState ? 'true' : 'false')}>
+              Sq. ft.
+              </button>
           </div>
         </div>
         <PropList

@@ -19,6 +19,10 @@ button {
   padding-right: 25px;
 }
 
+button.true {
+  background-color: blue;
+}
+
 .container {
   margin: 0;
   padding: 0;
