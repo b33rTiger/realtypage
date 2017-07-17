@@ -19,6 +19,10 @@ button {
   padding-right: 25px;
 }
 
+.btn.active {
+  background: blue;
+}
+
 .container {
   margin: 0;
   padding: 0;
