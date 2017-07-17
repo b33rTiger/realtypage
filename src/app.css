@@ -19,8 +19,8 @@ button {
   padding-right: 25px;
 }
 
-button.true {
-  background-color: blue;
+.btn.active {
+  background: blue;
 }
 
 .container {

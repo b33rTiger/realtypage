@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import PropList from './proplist';
-import { ButtonToolbar, Button } from 'react-bootstrap';
 import './app.css';
 
 class App extends Component {
@@ -19,32 +17,36 @@ class App extends Component {
   };
 
   handleClick(value) {
-    console.log(value);
     const data = this.props.listings;
     if (value === 'beds') {
-      console.log('value beds: ' + value);
       this.sortData(data, value)
       this.setState({
         filtered: data,
-        priceState: false,
-        sqftState: false,
-        bedsState: true
+        'classes': {
+          'bedsState': true,
+          'priceState': false,
+          'sqftState': false
+        }
       })
     } else if (value === 'price') {
       this.sortData(data, value)
       this.setState({
         filtered: data,
-        priceState: true,
-        sqftState: false,
-        bedsState: false
+        'classes': {
+          'bedsState': false,
+          'priceState': true,
+          'sqftState': false
+        }
       })
     } else {
       this.sortData(data, value)
       this.setState({
         filtered: data,
-        priceState: false,
-        sqftState: true,
-        bedsState: false
+        'classes': {
+          'bedsState': false,
+          'priceState': false,
+          'sqftState': true
+        }
       })
     }
   }
@@ -67,18 +69,18 @@ class App extends Component {
             <button
               type="button"
               onClick={() => this.handleClick('price')}
-              className={'btn btn-success ' + (priceState ? 'true' : 'false')}>
+              className={'btn btn-success ' + (priceState ? 'active' : '')}>
               Price
               </button>
             <button
               type="button"
               onClick={() => this.handleClick('beds')}
-              className={'btn btn-success ' + (bedsState ? 'true' : 'false')}>
+              className={'btn btn-success ' + (bedsState ? 'active' : '')}>
               Beds
               </button>
             <button type="button"
               onClick={() => this.handleClick('sqft')}
-              className={'btn btn-success ' + (sqftState ? 'true' : 'false')}>
+              className={'btn btn-success ' + (sqftState ? 'active' : '')}>
               Sq. ft.
               </button>
           </div>
